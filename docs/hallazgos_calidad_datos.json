@@ -1,0 +1,121 @@
+{
+  "generado_utc": "2026-11-19T13:41:08.931554+00:00",
+  "total_casos": 104675,
+  "metricas_etl": {
+    "total_original": 104675,
+    "total_transformado": 104675,
+    "ids_unicos": 104675,
+    "homologados": 50674,
+    "no_homologados": 54001,
+    "integridad_validada": true,
+    "clasificacion": {
+      "total_casos": 104675,
+      "quejas_servicio_ventas": 58183,
+      "sin_categoria": 28054,
+      "otras_categorias": 18438
+    },
+    "calidad_fechas": {
+      "total_casos": 104675,
+      "fechas_validas": 104675,
+      "fechas_invalidas_o_nulas": 0,
+      "fecha_minima": "2024-01-01",
+      "fecha_maxima": "2024-08-12"
+    }
+  },
+  "estados_homologacion": {
+    "HOMOLOGADO": 50674,
+    "SIN_CEVE": 48891,
+    "SIN_CANAL": 4925,
+    "SIN_COINCIDENCIA": 180,
+    "CANAL_NO_HOMOLOGADO": 5
+  },
+  "completitud_dimensiones": {
+    "Código de Ceve": {
+      "nulos": 48891,
+      "porcentaje": 46.71
+    },
+    "Canal de Venta": {
+      "nulos": 52322,
+      "porcentaje": 49.99
+    },
+    "Gerencia Ventas": {
+      "nulos": 77485,
+      "porcentaje": 74.02
+    },
+    "Región Supervisor": {
+      "nulos": 49170,
+      "porcentaje": 46.97
+    },
+    "Gerencia Supervisor": {
+      "nulos": 49177,
+      "porcentaje": 46.98
+    },
+    "División Supervisor": {
+      "nulos": 52883,
+      "porcentaje": 50.52
+    }
+  },
+  "hallazgos": [
+    {
+      "codigo": "H-001",
+      "titulo": "Cobertura insuficiente de homologación",
+      "severidad": "ALTA",
+      "casos": 54001,
+      "porcentaje": 51.59,
+      "descripcion": "Estados sin homologación: SIN_CEVE: 48,891, SIN_CANAL: 4,925, SIN_COINCIDENCIA: 180, CANAL_NO_HOMOLOGADO: 5.",
+      "impacto": "Limita el análisis por dimensiones homologadas.",
+      "recomendacion": "Corregir datos de Ceve y Canal y revisar las correspondencias faltantes."
+    },
+    {
+      "codigo": "H-002",
+      "titulo": "Categorías no informadas",
+      "severidad": "ALTA",
+      "casos": 28054,
+      "porcentaje": 26.8,
+      "descripcion": "Casos con Categoría vacía o no informada.",
+      "impacto": "No pueden clasificarse con certeza en la categoría objetivo.",
+      "recomendacion": "Validar la captura de categorías y revisar los registros históricos."
+    },
+    {
+      "codigo": "H-003",
+      "titulo": "Cobertura temporal del dataset",
+      "severidad": "INFORMATIVA",
+      "casos": 5005,
+      "porcentaje": 4.78,
+      "descripcion": "Primera fecha: 2024-01-01 00:00:00; última fecha: 2024-08-12 00:00:00. Los registros contabilizados corresponden al último mes observado, que termina antes del último día calendario; no representan fechas inválidas.",
+      "impacto": "La cobertura disponible no debe interpretarse automáticamente como un año completo.",
+      "recomendacion": "Mostrar el rango de fechas disponible y señalar el último mes como parcial cuando corresponda."
+    },
+    {
+      "codigo": "H-004",
+      "titulo": "Valores faltantes en dimensiones",
+      "severidad": "ALTA",
+      "casos": 80375,
+      "porcentaje": 76.79,
+      "descripcion": "Casos con al menos una dimensión faltante. Código de Ceve: 48,891 (46.71%); Canal de Venta: 52,322 (49.99%); Gerencia Ventas: 77,485 (74.02%); Región Supervisor: 49,170 (46.97%); Gerencia Supervisor: 49,177 (46.98%); División Supervisor: 52,883 (50.52%)",
+      "impacto": "Reduce la cobertura de segmentaciones.",
+      "recomendacion": "Implementar controles de obligatoriedad y completitud por dimensión."
+    },
+    {
+      "codigo": "H-005",
+      "titulo": "Fechas de cierre no informadas",
+      "severidad": "POR_EVALUAR",
+      "casos": 60948,
+      "porcentaje": 58.23,
+      "descripcion": "Casos sin fecha de cierre.",
+      "impacto": "No se puede calcular el tiempo de resolución para todos los casos. No implica por sí solo que estén abiertos.",
+      "recomendacion": "Contrastar con el estado de los casos."
+    },
+    {
+      "codigo": "H-006",
+      "titulo": "Quejas objetivo sin homologación",
+      "severidad": "MEDIA",
+      "casos": 10379,
+      "porcentaje": 17.84,
+      "denominador": 58183,
+      "descripcion": "Quejas de servicio a ventas sin homologación completa.",
+      "impacto": "Las segmentaciones homologadas no cubren todas las quejas objetivo.",
+      "recomendacion": "Mostrar cobertura de homologación en Power BI y conservar los casos sin correspondencia."
+    }
+  ]
+}

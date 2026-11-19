@@ -1,0 +1,45 @@
+// MEDIDAS DAX - CRICKS MÉXICO
+// Tabla de datos: cricks_casos_powerbi
+// Valores de referencia del ETL: 104675 registros.
+
+// 1. TOTAL CASOS
+Total Casos =
+COUNTROWS('cricks_casos_powerbi')
+
+// 2. QUEJAS SERVICIO VENTAS
+Quejas Servicio Ventas =
+CALCULATE(
+    [Total Casos],
+    'cricks_casos_powerbi'[Categoria_Analitica] = "Quejas de servicio a ventas"
+)
+
+// 3. PORCENTAJE QUEJAS
+Porcentaje Quejas =
+DIVIDE(
+    [Quejas Servicio Ventas],
+    [Total Casos],
+    0
+)
+
+// 4. CASOS SIN HOMOLOGACION
+Casos Sin Homologacion =
+CALCULATE(
+    [Total Casos],
+    'cricks_casos_powerbi'[Estado_Homologacion] <> "HOMOLOGADO"
+)
+
+// 5. PORCENTAJE HOMOLOGACION
+Porcentaje Homologacion =
+DIVIDE(
+    [Total Casos] - [Casos Sin Homologacion],
+    [Total Casos],
+    0
+)
+
+// 6. CASOS SIN CATEGORIA
+Casos Sin Categoria =
+CALCULATE(
+    [Total Casos],
+    ISBLANK('cricks_casos_powerbi'[Categoría])
+        || 'cricks_casos_powerbi'[Categoría] = ""
+)
