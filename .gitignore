@@ -1,0 +1,33 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Variables sensibles
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Datos originales y procesados
+data/raw/
+data/staging/
+data/processed/
+data/quality/
+
+# Reportes generados
+reports/audits/
+reports/insights/
+reports/inconsistencies/
+
+# Archivos de Power BI
+*.pbix
+
+# Archivos temporales
+.ipynb_checkpoints/
+.DS_Store
+Thumbs.db
