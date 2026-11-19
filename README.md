@@ -117,19 +117,19 @@ Las fuentes Excel se configuran mediante las variables de entorno definidas en `
 ### Auditoría de fuentes
 
 ```bash
-python "Script CriksCruce.py" --stage audit
+python main.py --stage audit
 ```
 
 ### Transformación y validación
 
 ```bash
-python "Script CriksCruce.py" --stage etl
+python main.py --stage etl
 ```
 
 ### Exportación analítica
 
 ```bash
-python "Script CriksCruce.py" --stage export
+python main.py --stage export
 ```
 
 La etapa de exportación ejecuta el ETL, genera hallazgos de calidad y produce dos vistas CSV en `data/processed/`.
@@ -159,7 +159,7 @@ Las pruebas de integración requieren las fuentes Excel originales configuradas 
 
 ## Estado de los entregables
 
-- **ETL de Cricks México:** Implementado
+- **Ejecución del ETL:** Implementado
 - **Generador de hallazgos:** Implementado
 - **Exportador Power BI:** Implementado
 - **Dashboard Power BI:** En desarrollo.

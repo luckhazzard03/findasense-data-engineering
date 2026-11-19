@@ -19,7 +19,7 @@ MODULES = {
 }
 
 DELIVERABLES = [
-    ("ETL de Cricks México", "src/pipelines/cricks_pipeline.py"),
+    ("Ejecución del ETL", "main.py"),
     ("Generador de hallazgos", "src/auditors/quality_report.py"),
     ("Exportador Power BI", "src/loaders/file_loader.py"),
 ]
@@ -149,19 +149,19 @@ def generate():
         "### Auditoría de fuentes",
         "",
         "```bash",
-        'python "Script CriksCruce.py" --stage audit',
+        'python main.py --stage audit',
         "```",
         "",
         "### Transformación y validación",
         "",
         "```bash",
-        'python "Script CriksCruce.py" --stage etl',
+        'python main.py --stage etl',
         "```",
         "",
         "### Exportación analítica",
         "",
         "```bash",
-        'python "Script CriksCruce.py" --stage export',
+        'python main.py --stage export',
         "```",
         "",
         "La etapa de exportación ejecuta el ETL, genera "
