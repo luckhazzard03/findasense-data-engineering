@@ -2,7 +2,7 @@
 
 **Caso:** Cricks México
 
-**Generado (UTC):** 2026-11-19T13:41:08.931554+00:00
+**Generado (UTC):** 2026-11-19T19:15:42.821942+00:00
 
 **Registros analizados:** 104,675
 

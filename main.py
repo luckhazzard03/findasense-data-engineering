@@ -1,12 +1,11 @@
 """
-Findasense - Prueba Técnica Senior Data Engineer.
-
-Caso: Cricks México.
+Findasense - Prueba Técnica Senior Data Engineer
+Caso: Cricks México
 
 Etapas:
-    audit: auditoría de fuentes.
-    etl: transformación, validación e informe de calidad.
-    export: ETL completo y exportación para Power BI.
+    audit  : Auditoría de fuentes.
+    etl    : Transformación, validación e informe de calidad.
+    export : Ejecución ETL y exportación para Power BI.
 """
 
 import argparse
@@ -18,7 +17,7 @@ from src.loaders.file_loader import FileLoader
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Pipeline Cricks México"
+        description="Pipeline ETL - Cricks México"
     )
 
     parser.add_argument(
@@ -39,7 +38,7 @@ def main():
         _, results = pipeline.run_etl()
         print("\nETL FINALIZADO Y VALIDADO\n")
 
-    else:
+    elif args.stage == "export":
         data, etl_metrics = pipeline.run_etl()
 
         loader = FileLoader()
